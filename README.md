@@ -16,5 +16,8 @@
 
 ### ***3.2)Get с добавление BasicAuth(неверный пароль):***
 ![1](src/main/resources/static/img/GetWrongAuth.png)
+
 --------
 
+## Swagger:
+![1](src/main/resources/static/img/SwaggerView.png)

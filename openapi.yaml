@@ -1,0 +1,358 @@
+openapi: 3.0.0
+info:
+  title: Educational API
+  version: 1.0.0
+  description: API для управления сущностями Head, Institute, Module и EducationalProgram
+servers:
+  - url: http://localhost:8080/api
+paths:
+  /head:
+    post:
+      summary: Создать новую сущность Head
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Head'
+      responses:
+        '201':
+          description: Объект Head успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Head'
+
+    get:
+      summary: Получить все существующие объекты Head
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Head'
+
+  /head/{id}:
+    put:
+      summary: Обновить существующую сущность Head
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Head
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Head'
+      responses:
+        '200':
+          description: Объект Head успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Head'
+        '404':
+          description: Объект Head не найден
+
+    delete:
+      summary: Удалить сущность Head по идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Head
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Объект Head успешно удален
+        '404':
+          description: Объект Head не найден
+
+  /institute:
+    post:
+      summary: Создать новую сущность Institute
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Institute'
+      responses:
+        '201':
+          description: Объект Institute успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Institute'
+
+    get:
+      summary: Получить все существующие объекты Institute
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Institute'
+
+  /institute/{id}:
+    put:
+      summary: Обновить существующую сущность Institute
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Institute
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Institute'
+      responses:
+        '200':
+          description: Объект Institute успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Institute'
+        '404':
+          description: Объект Institute не найден
+
+    delete:
+      summary: Удалить сущность Institute по идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Institute
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Объект Institute успешно удален
+        '404':
+          description: Объект Institute не найден
+
+  /module:
+    post:
+      summary: Создать новую сущность Module
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Module'
+      responses:
+        '201':
+          description: Объект Module успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+
+    get:
+      summary: Получить все существующие объекты Module
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Module'
+
+  /module/{id}:
+    put:
+      summary: Обновить существующую сущность Module
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Module
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Module'
+      responses:
+        '200':
+          description: Объект Module успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '404':
+          description: Объект Module не найден
+
+    delete:
+      summary: Удалить сущность Module по идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности Module
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Объект Module успешно удален
+        '404':
+          description: Объект Module не найден
+
+  /program:
+    post:
+      summary: Создать новую сущность EducationalProgram
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalProgram'
+      responses:
+        '201':
+          description: Объект EducationalProgram успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationalProgram'
+
+    get:
+      summary: Получить все существующие объекты EducationalProgram
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EducationalProgram'
+
+  /program/{id}:
+    get:
+      summary: Получить сущность EducationalProgram по идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности EducationalProgram
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationalProgram'
+        '404':
+          description: Объект EducationalProgram не найден
+
+    put:
+      summary: Обновить существующую сущность EducationalProgram
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности EducationalProgram
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EducationalProgram'
+      responses:
+        '200':
+          description: Объект EducationalProgram успешно обновлен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EducationalProgram'
+        '404':
+          description: Объект EducationalProgram не найден
+
+    delete:
+      summary: Удалить сущность EducationalProgram по идентификатору
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: UUID сущности EducationalProgram
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '204':
+          description: Объект EducationalProgram успешно удален
+        '404':
+          description: Объект EducationalProgram не найден
+
+components:
+  schemas:
+    Head:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор объекта Head
+        fullname:
+          type: string
+          description: Полное имя
+      required:
+        - fullname
+
+    Institute:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор объекта Institute
+        name:
+          type: string
+          description: Название института
+        location:
+          type: string
+          description: Местоположение института
+      required:
+        - name
+        - location
+
+    Module:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор объекта Module
+        name:
+          type: string
+          description: Название модуля
