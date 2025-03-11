@@ -21,3 +21,10 @@
 
 ## Swagger:
 ![1](src/main/resources/static/img/SwaggerView.png)
+
+--------
+## Docker работает:
+![1](src/main/resources/static/img/dockerworks.png)
+
+-----
+
