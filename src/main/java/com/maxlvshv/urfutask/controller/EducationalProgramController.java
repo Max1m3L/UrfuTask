@@ -19,7 +19,7 @@ public class EducationalProgramController {
     public EducationalProgramController(EducationalProgramService programService) {
         this.programService = programService;
     }
-
+    
     @PostMapping
     public ResponseEntity<EducationalProgram> createProgram(@RequestBody EducationalProgram program) {
         EducationalProgram createdProgram = programService.createProgram(program);

@@ -1,6 +1,7 @@
 package com.maxlvshv.urfutask.service;
 
 import com.maxlvshv.urfutask.entity.Head;
+import com.maxlvshv.urfutask.exception.EntityAlreadyExistsException;
 import com.maxlvshv.urfutask.repository.HeadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class HeadService {
     }
 
     public Head createHead(Head head) {
+        if (headRepository.existsByFullname(head.getFullname())) {
+            throw new EntityAlreadyExistsException("Head with name '" + head.getFullname() + "' already exists.");
+        }
         return headRepository.save(head);
     }
 

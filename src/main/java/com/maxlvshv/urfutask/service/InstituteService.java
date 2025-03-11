@@ -1,6 +1,7 @@
 package com.maxlvshv.urfutask.service;
 
 import com.maxlvshv.urfutask.entity.Institute;
+import com.maxlvshv.urfutask.exception.EntityAlreadyExistsException;
 import com.maxlvshv.urfutask.repository.InstituteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,9 @@ public class InstituteService {
     }
 
     public Institute createInstitute(Institute institute) {
+        if (instituteRepository.existsByTitle(institute.getTitle())) {
+            throw new EntityAlreadyExistsException("Institute with title '" + institute.getTitle() + "' already exists.");
+        }
         return instituteRepository.save(institute);
     }
 
