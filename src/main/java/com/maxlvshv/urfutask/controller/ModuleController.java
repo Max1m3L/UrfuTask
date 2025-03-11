@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Контроллер для управления сущностями Module.
+ * Обрабатывает HTTP-запросы, связанные с сущностями Module,
+ * включая создание, обновление, удаление и получение информации о них.
+ */
 @RestController
 @RequestMapping("/api/module")
 public class ModuleController {
@@ -20,17 +25,34 @@ public class ModuleController {
         this.moduleService = moduleService;
     }
 
+    /**
+     * Создает новую сущность Module.
+     *
+     * @param module объект Module, который нужно создать
+     * @return ResponseEntity с созданным объектом Module
+     */
     @PostMapping
     public ResponseEntity<Module> createProgram(@RequestBody Module module) {
         Module createdModule = moduleService.createModule(module);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdModule);
     }
 
+    /**
+     * Возвращает все существующие объекты Module.
+     *
+     * @return List<Module>
+     */
     @GetMapping
     public ResponseEntity<List<Module>> getModules() {
         return ResponseEntity.ok(moduleService.getAllModules());
     }
 
+    /**
+     * Обновляет существующую сущность Module.
+     *
+     * @param module объект Module с обновленными данными
+     * @return ResponseEntity с обновленным объектом Module
+     */
     @PutMapping("/{id}")
     public ResponseEntity<Module> updateModule(@PathVariable UUID id, @RequestBody Module module) {
         module.setUuid(id);
@@ -38,6 +60,12 @@ public class ModuleController {
         return ResponseEntity.ok(updatedModule);
     }
 
+    /**
+     * Удаляет сущность Module по идентификатору.
+     *
+     * @param id идентификатор сущности Module, которую нужно удалить
+     * @return ResponseEntity с статусом выполнения операции
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteModule(@PathVariable UUID id) {
         moduleService.deleteModule(id);

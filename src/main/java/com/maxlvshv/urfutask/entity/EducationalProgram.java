@@ -6,6 +6,12 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Сущность EducationalProgram, представляющая Образовательную программу в системе.
+ * Эта сущность содержит информацию о названии ОП, шифра, уровня, ответственного лица(Head),
+ * Дату создания, а так же его уникальный идентификатор.
+ *
+ */
 @Entity
 public class EducationalProgram {
     @Id

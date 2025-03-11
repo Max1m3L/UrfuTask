@@ -7,6 +7,11 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
+/**
+ * Сущность Head, представляющая ответственные лица в системе.
+ * Эта сущность содержит информацию о имени, включая его уникальный идентификатор.
+ *
+ */
 @Entity
 public class Head {
     @Id

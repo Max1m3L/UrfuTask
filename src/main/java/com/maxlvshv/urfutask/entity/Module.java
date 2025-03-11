@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 
 import java.util.UUID;
 
+/**
+ * Сущность Module, представляющая типы модулей в системе.
+ * Эта сущность содержит информацию о названии модуля и его типа, включая его уникальный идентификатор.
+ *
+ */
 @Entity
 public class Module {
     @Id

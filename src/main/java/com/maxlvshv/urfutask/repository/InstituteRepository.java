@@ -6,6 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
+/**
+ * Репозиторий для работы с сущностями Institute.
+ * Предоставляет методы для выполнения операций CRUD
+ *  (создание, чтение, обновление, удаление) с сущностями Institute.
+ */
 @Repository
 public interface InstituteRepository extends JpaRepository<Institute, UUID> {
     boolean existsByTitle(String title);

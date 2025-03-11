@@ -7,6 +7,11 @@ import jakarta.persistence.Id;
 
 import java.util.UUID;
 
+/**
+ * Сущность Institute, представляющая институты в системе.
+ * Эта сущность содержит информацию о названии института, включая его уникальный идентификатор.
+ *
+ */
 @Entity
 public class Institute {
     @Id
