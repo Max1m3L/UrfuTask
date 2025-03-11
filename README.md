@@ -1,6 +1,6 @@
 ## Urfu Task
 
-### Stack: Java Spring, PostgreSQL
+### Stack: Java Spring, PostgreSQL, Docker
 
 --------
 
@@ -11,10 +11,10 @@
 ### ***2)Post с существующим именем:***
 ![1](src/main/resources/static/img/PostApiHeadExists.png)
 
-### ***3)Get с добавление BasicAuth:***
+### ***3)Get с добавлением BasicAuth:***
 ![1](src/main/resources/static/img/GetCorrectAuth.png)
 
-### ***3.2)Get с добавление BasicAuth(неверный пароль):***
+### ***3.2)Get с добавлением BasicAuth(неверный пароль):***
 ![1](src/main/resources/static/img/GetWrongAuth.png)
 
 --------
