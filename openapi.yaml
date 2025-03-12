@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  title: Educational API
+  title: urfuTask API
   version: 1.0.0
   description: API для управления сущностями Head, Institute, Module и EducationalProgram
 servers:
@@ -356,3 +356,37 @@ components:
         name:
           type: string
           description: Название модуля
+
+    EducationalProgram:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: Уникальный идентификатор образовательной программы
+        title:
+          type: string
+          description: Название образовательной программы
+        cypher:
+          type: string
+          description: Шифр образовательной программы
+        level:
+          type: string
+          enum: [ BACHELOR, MASTER, DOCTORATE ]
+          description: Уровень образовательной программы
+        standard:
+          type: string
+          enum: [ STANDARD_A, STANDARD_B ]
+          description: Стандарт образовательной программы
+        institute:
+          $ref: '#/components/schemas/Institute'
+        head:
+          $ref: '#/components/schemas/Head'
+        accreditationDate:
+          type: string
+          format: date
+          description: Дата аккредитации образовательной программы
+        modules:
+          type: array
+          items:
+            $ref: '#/components/schemas/Module'
