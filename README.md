@@ -26,5 +26,10 @@
 ## Docker работает:
 ![1](src/main/resources/static/img/dockerworks.png)
 
+-------
+
+## CI работает:
+![1](src/main/resources/static/img/CIWorks.png)
+
 -----
 
