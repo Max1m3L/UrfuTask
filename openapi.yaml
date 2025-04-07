@@ -1,392 +1,601 @@
-openapi: 3.0.0
-info:
-  title: urfuTask API
-  version: 1.0.0
-  description: API для управления сущностями Head, Institute, Module и EducationalProgram
-servers:
-  - url: http://localhost:8080/api
-paths:
-  /head:
-    post:
-      summary: Создать новую сущность Head
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Head'
-      responses:
-        '201':
-          description: Объект Head успешно создан
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Head'
-
-    get:
-      summary: Получить все существующие объекты Head
-      responses:
-        '200':
-          description: Успешный ответ
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Head'
-
-  /head/{id}:
-    put:
-      summary: Обновить существующую сущность Head
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Head
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Head'
-      responses:
-        '200':
-          description: Объект Head успешно обновлен
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Head'
-        '404':
-          description: Объект Head не найден
-
-    delete:
-      summary: Удалить сущность Head по идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Head
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Объект Head успешно удален
-        '404':
-          description: Объект Head не найден
-
-  /institute:
-    post:
-      summary: Создать новую сущность Institute
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Institute'
-      responses:
-        '201':
-          description: Объект Institute успешно создан
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Institute'
-
-    get:
-      summary: Получить все существующие объекты Institute
-      responses:
-        '200':
-          description: Успешный ответ
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Institute'
-
-  /institute/{id}:
-    put:
-      summary: Обновить существующую сущность Institute
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Institute
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Institute'
-      responses:
-        '200':
-          description: Объект Institute успешно обновлен
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Institute'
-        '404':
-          description: Объект Institute не найден
-
-    delete:
-      summary: Удалить сущность Institute по идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Institute
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Объект Institute успешно удален
-        '404':
-          description: Объект Institute не найден
-
-  /module:
-    post:
-      summary: Создать новую сущность Module
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Module'
-      responses:
-        '201':
-          description: Объект Module успешно создан
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Module'
-
-    get:
-      summary: Получить все существующие объекты Module
-      responses:
-        '200':
-          description: Успешный ответ
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Module'
-
-  /module/{id}:
-    put:
-      summary: Обновить существующую сущность Module
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Module
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Module'
-      responses:
-        '200':
-          description: Объект Module успешно обновлен
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Module'
-        '404':
-          description: Объект Module не найден
-
-    delete:
-      summary: Удалить сущность Module по идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности Module
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Объект Module успешно удален
-        '404':
-          description: Объект Module не найден
-
-  /program:
-    post:
-      summary: Создать новую сущность EducationalProgram
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EducationalProgram'
-      responses:
-        '201':
-          description: Объект EducationalProgram успешно создан
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EducationalProgram'
-
-    get:
-      summary: Получить все существующие объекты EducationalProgram
-      responses:
-        '200':
-          description: Успешный ответ
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/EducationalProgram'
-
-  /program/{id}:
-    get:
-      summary: Получить сущность EducationalProgram по идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности EducationalProgram
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '200':
-          description: Успешный ответ
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EducationalProgram'
-        '404':
-          description: Объект EducationalProgram не найден
-
-    put:
-      summary: Обновить существующую сущность EducationalProgram
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности EducationalProgram
-          schema:
-            type: string
-            format: uuid
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/EducationalProgram'
-      responses:
-        '200':
-          description: Объект EducationalProgram успешно обновлен
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/EducationalProgram'
-        '404':
-          description: Объект EducationalProgram не найден
-
-    delete:
-      summary: Удалить сущность EducationalProgram по идентификатору
-      parameters:
-        - name: id
-          in: path
-          required: true
-          description: UUID сущности EducationalProgram
-          schema:
-            type: string
-            format: uuid
-      responses:
-        '204':
-          description: Объект EducationalProgram успешно удален
-        '404':
-          description: Объект EducationalProgram не найден
-
-components:
-  schemas:
-    Head:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-          description: Уникальный идентификатор объекта Head
-        fullname:
-          type: string
-          description: Полное имя
-      required:
-        - fullname
-
-    Institute:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-          description: Уникальный идентификатор объекта Institute
-        name:
-          type: string
-          description: Название института
-        location:
-          type: string
-          description: Местоположение института
-      required:
-        - name
-        - location
-
-    Module:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-          description: Уникальный идентификатор объекта Module
-        name:
-          type: string
-          description: Название модуля
-
-    EducationalProgram:
-      type: object
-      properties:
-        uuid:
-          type: string
-          format: uuid
-          description: Уникальный идентификатор образовательной программы
-        title:
-          type: string
-          description: Название образовательной программы
-        cypher:
-          type: string
-          description: Шифр образовательной программы
-        level:
-          type: string
-          enum: [ BACHELOR, MASTER, DOCTORATE ]
-          description: Уровень образовательной программы
-        standard:
-          type: string
-          enum: [ STANDARD_A, STANDARD_B ]
-          description: Стандарт образовательной программы
-        institute:
-          $ref: '#/components/schemas/Institute'
-        head:
-          $ref: '#/components/schemas/Head'
-        accreditationDate:
-          type: string
-          format: date
-          description: Дата аккредитации образовательной программы
-        modules:
-          type: array
-          items:
-            $ref: '#/components/schemas/Module'
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/api/program/{id}": {
+      "get": {
+        "tags": [
+          "educational-program-controller"
+        ],
+        "operationId": "getProgram",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationalProgram"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "educational-program-controller"
+        ],
+        "operationId": "updateProgram",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EducationalProgram"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationalProgram"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "educational-program-controller"
+        ],
+        "operationId": "deleteProgram",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/module/{id}": {
+      "put": {
+        "tags": [
+          "module-controller"
+        ],
+        "operationId": "updateModule",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Module"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Module"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "module-controller"
+        ],
+        "operationId": "deleteModule",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/institute/{id}": {
+      "put": {
+        "tags": [
+          "institute-controller"
+        ],
+        "operationId": "updateInstitute",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Institute"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Institute"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "institute-controller"
+        ],
+        "operationId": "deleteInstitute",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/head/{id}": {
+      "put": {
+        "tags": [
+          "head-controller"
+        ],
+        "operationId": "updateHead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Head"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Head"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "head-controller"
+        ],
+        "operationId": "deleteHead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/program": {
+      "get": {
+        "tags": [
+          "educational-program-controller"
+        ],
+        "operationId": "getAllPrograms",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EducationalProgram"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "educational-program-controller"
+        ],
+        "operationId": "createProgram",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EducationalProgram"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/EducationalProgram"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/module": {
+      "get": {
+        "tags": [
+          "module-controller"
+        ],
+        "operationId": "getModules",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Module"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "module-controller"
+        ],
+        "operationId": "createProgram_1",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Module"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Module"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/institute": {
+      "get": {
+        "tags": [
+          "institute-controller"
+        ],
+        "operationId": "getInstitutes",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Institute"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "institute-controller"
+        ],
+        "operationId": "createProgram_2",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Institute"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Institute"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/head": {
+      "get": {
+        "tags": [
+          "head-controller"
+        ],
+        "operationId": "getHeads",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Head"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "head-controller"
+        ],
+        "operationId": "createProgram_3",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Head"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Head"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EducationalProgram": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "cypher": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "BACHELOR",
+              "APPLIED_BACHELOR",
+              "SPECIALIST",
+              "MASTER",
+              "POSTGRADUATE"
+            ]
+          },
+          "standard": {
+            "type": "string",
+            "enum": [
+              "SUOS",
+              "SUT",
+              "FGOS_VO",
+              "FGOS_VPO",
+              "FGOS_3_PLUS"
+            ]
+          },
+          "institute": {
+            "$ref": "#/components/schemas/Institute"
+          },
+          "head": {
+            "$ref": "#/components/schemas/Head"
+          },
+          "accreditationDate": {
+            "type": "string",
+            "format": "date"
+          },
+          "modules": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Module"
+            }
+          }
+        }
+      },
+      "Head": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "fullname": {
+            "type": "string"
+          }
+        }
+      },
+      "Institute": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          }
+        }
+      },
+      "Module": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "STANDARD",
+              "PROJECT_EDUCATION",
+              "MINOR",
+              "SECTION_FK",
+              "FOREIGN_LANGUAGE"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
